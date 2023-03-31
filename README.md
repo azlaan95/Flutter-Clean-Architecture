@@ -4,8 +4,8 @@ This project will demonstrate you the use of Clean Architecture with Bloc.
 
 ## Getting Started
 
-To run the project you need to configure with Flutter 3.7.8
-I have creates a Make file script you can directly run those script or take a reference from it
+To run the project you need to configure with Flutter 3.7.8. 
+I have created a Make file script for you, you can directly run those script or take a reference from it
 
 ### Steps To Run the Project
 
@@ -20,12 +20,10 @@ You can Run any of below:
 - main_dev.dart
 - main_prod.dart
 
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Manual Commands Step by Step if you are not using make file commands
+- cd data && flutter clean && flutter pub get && cd ..
+- cd domain && flutter clean && flutter pub get && cd ..
+- flutter clean && flutter pub get
+- cd data && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+- cd domain && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+- flutter pub run build_runner build --delete-conflicting-outputs
