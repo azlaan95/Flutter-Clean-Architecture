@@ -12,7 +12,6 @@ dependencies:
 
   equatable: ^2.0.5
   dartz: ^0.10.1
-  alice: ^0.3.2
   azl_data:
     path: ../data
 

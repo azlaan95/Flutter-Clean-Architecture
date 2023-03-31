@@ -99,6 +99,7 @@ class BaseRepository with DatasourceModule {
   }
 
   AppBaseResponse getAppResponse(http.Response response) {
+    appConfig.enableIntercept(response);
     try {
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);

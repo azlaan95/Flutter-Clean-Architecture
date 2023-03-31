@@ -45,11 +45,10 @@ Route<Object>? _buildRoute(
     settings: settings,
     fullscreenDialog: fullscreenDialog,
     builder: (context) {
-      return screen;
+      return Material(child: screen);
     },
   );
 }
-
 
 class CustomMaterialPageRoute<T> extends MaterialPageRoute<T> {
   @override

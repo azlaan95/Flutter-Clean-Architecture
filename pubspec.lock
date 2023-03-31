@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "58.0.0"
   alice:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: alice
       sha256: "2c6f387325405870f878a3c0545c1b9108c437d46fd11bac8e4fd742cb1e32e8"

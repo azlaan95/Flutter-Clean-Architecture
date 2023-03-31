@@ -15,13 +15,13 @@ class UsersScreen extends StatelessWidget with ValidatorModule, UseCaseModule {
       create: (context) {
         return UsersBloc(getUserUserCase(appConfigType: AppConfig.shared));
       },
-      child: const HomePage(),
+      child: const UserPage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class UserPage extends StatelessWidget {
+  const UserPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

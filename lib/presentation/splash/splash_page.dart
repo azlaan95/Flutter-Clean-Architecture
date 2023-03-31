@@ -14,13 +14,11 @@ class SplashScreen extends StatelessWidget with ResponsiveMixin {
       Future.delayed(const Duration(seconds: 3)).then((value) {
         NavigationController.push(Routes.home.routeName, replace: true);
       });
-      return Material(
-        color: Color(0xFF194781),
-        child: Center(
-          child: SizedBox(
-            width: 124.w,
-            height: 124.w,
-          ),
+      return Center(
+        child: SizedBox(
+          width: 124.w,
+          height: 124.w,
+          child: const Text("FLUTTER CLEAN ARCHITECTURE"),
         ),
       );
     });
