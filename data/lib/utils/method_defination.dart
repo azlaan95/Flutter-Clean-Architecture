@@ -1,0 +1,1 @@
+typedef T FromJson<T>(Map<String, dynamic> json);

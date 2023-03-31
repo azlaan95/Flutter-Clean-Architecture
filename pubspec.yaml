@@ -1,0 +1,52 @@
+name: azl_clean_sample
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.5.4
+  easy_localization: ^3.0.1
+  flutter_bloc: ^8.1.1
+
+  azl_domain:
+    path: domain
+
+dependency_overrides:
+  flutter_test:
+    sdk: flutter
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  flutter_lints: ^2.0.0
+  mockito: ^5.3.0
+
+flutter:
+
+  uses-material-design: true
+  assets:
+#    - assets/icons/
+#    - assets/fonts/
+#    - assets/images/
+    - assets/locales/
+#
+#  fonts:
+#    - family: Exo2
+#      fonts:
+#        - asset: assets/fonts/Exo2-Bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/Exo2-SemiBold.ttf
+#          weight: 600
+#        - asset: assets/fonts/Exo2-Medium.ttf
+#          weight: 500
+#        - asset: assets/fonts/Exo2-Regular.ttf
+#          weight: 400

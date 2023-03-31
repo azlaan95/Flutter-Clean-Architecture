@@ -1,0 +1,23 @@
+name: azl_domain
+description: Clean Domain Layer
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+
+dependencies:
+
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  alice: ^0.3.2
+  azl_data:
+    path: ../data
+
+dev_dependencies:
+  json_serializable: ^6.6.1
+  build_runner: ^2.3.3
+  flutter_lints: ^2.0.1
+
