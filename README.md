@@ -1,10 +1,25 @@
-# sample_project
+# Flutter Clean Architecture - by Azlaan Khan
 
-A new Flutter project.
+This project will demonstrate you the use of Clean Architecture with Bloc.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run the project you need to configure with Flutter 3.7.8
+I have creates a Make file script you can directly run those script or take a reference from it
+
+### Steps To Run the Project
+
+- Setup Flutter 3.7.8
+- Call Command:
+  - make pub-get
+
+### Entry Point
+
+You can Run any of below:
+- main.dart
+- main_dev.dart
+- main_prod.dart
+
 
 A few resources to get you started if this is your first Flutter project:
 

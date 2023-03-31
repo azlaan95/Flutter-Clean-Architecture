@@ -3,13 +3,13 @@
 SHELL := /bin/bash
 
 gen: ## Generate files
-	fvm flutter pub run build_runner build --delete-conflicting-outputs
+	flutter pub run build_runner build --delete-conflicting-outputs
 
 gen-domain: ## Generate files
-	cd domain && fvm flutter pub run build_runner build --delete-conflicting-outputs
+	cd domain && flutter pub run build_runner build --delete-conflicting-outputs
 
 gen-data: ## Generate files
-	cd data && fvm flutter pub run build_runner build --delete-conflicting-outputs
+	cd data && flutter pub run build_runner build --delete-conflicting-outputs
 
 app-setup: ## Setup fvm and get Dependencies
 	dart pub global activate fvm
@@ -18,14 +18,14 @@ app-setup: ## Setup fvm and get Dependencies
 
 
 pub-get: ## Clean Pub Get
-	cd data && fvm flutter clean && fvm flutter pub get && cd ..
-	cd domain && fvm flutter clean && fvm flutter pub get && cd ..
-	fvm flutter clean && fvm flutter pub get
-	cd data && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
-	cd domain && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
-	fvm flutter pub run build_runner build --delete-conflicting-outputs
+	cd data && flutter clean && flutter pub get && cd ..
+	cd domain && flutter clean && flutter pub get && cd ..
+	flutter clean && flutter pub get
+	cd data && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	cd domain && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	flutter pub run build_runner build --delete-conflicting-outputs
 
 app-clean: ## Clean Pub Get
-	cd data && fvm flutter clean && cd ..
-	cd domain && fvm flutter clean && cd ..
+	cd data && flutter clean && cd ..
+	cd domain && flutter clean && cd ..
 	flutter clean
