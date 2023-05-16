@@ -18,14 +18,23 @@ app-setup: ## Setup fvm and get Dependencies
 
 
 pub-get: ## Clean Pub Get
-	cd data && flutter clean && flutter pub get && cd ..
-	cd domain && flutter clean && flutter pub get && cd ..
-	flutter clean && flutter pub get
-	cd data && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
-	cd domain && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
-	flutter pub run build_runner build --delete-conflicting-outputs
+	make app-clean
+	cd data && flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	cd domain && flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	fvm flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
 
 app-clean: ## Clean Pub Get
 	cd data && flutter clean && cd ..
 	cd domain && flutter clean && cd ..
 	flutter clean
+
+fvm-get: ## Clean Pub Get
+	make fvm-clean
+	cd data && fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	cd domain && fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+	fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+fvm-clean: ## Clean Pub Get
+	cd data && fvm flutter clean && cd ..
+	cd domain && fvm flutter clean && cd ..
+	fvm flutter clean

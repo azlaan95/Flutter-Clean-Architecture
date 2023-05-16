@@ -11,7 +11,7 @@ I have created a Make file script for you, you can directly run those script or 
 
 - Setup Flutter 3.7.8
 - Call Command:
-  - make pub-get
+  - make pub-get or fvm-get
 
 ### Entry Point
 
@@ -27,3 +27,10 @@ You can Run any of below:
 - cd data && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
 - cd domain && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
 - flutter pub run build_runner build --delete-conflicting-outputs
+
+### About Azlaan Khan
+Azlaan has been working in the IT industry since last 7 years.
+He has contributed in many apps of Different domains.
+Have skills to work in Almost any mobile technology and also sometimes work on backend techs.
+
+Linkedin: https://www.linkedin.com/in/azlaan-khan-74b615a5
