@@ -4,12 +4,12 @@ This project will demonstrate you the use of Clean Architecture with Bloc.
 
 ## Getting Started
 
-To run the project you need to configure with Flutter 3.7.8. 
+To run the project you need to configure with Flutter 3.10.0. 
 I have created a Make file script for you, you can directly run those script or take a reference from it
 
 ### Steps To Run the Project
 
-- Setup Flutter 3.7.8
+- Setup Flutter 3.10.0
 - Call Command:
   - make pub-get or fvm-get
 
