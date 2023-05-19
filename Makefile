@@ -21,7 +21,7 @@ pub-get: ## Clean Pub Get
 	make app-clean
 	cd data && flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
 	cd domain && flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs && cd ..
-	fvm flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
+	flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
 
 app-clean: ## Clean Pub Get
 	cd data && flutter clean && cd ..
