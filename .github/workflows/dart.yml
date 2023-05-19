@@ -24,3 +24,6 @@ jobs:
 
       - name: Generate Files
         run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Build AAB
+        run: flutter build appbundle --debug -t lib/main.dart
