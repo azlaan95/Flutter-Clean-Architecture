@@ -1,0 +1,26 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Dart
+
+on:
+  push:
+    branches: [ "development" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Flutter
+        uses: britannio/action-install-flutter@v1.1
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Generate Files
+        run: flutter pub run build_runner build --delete-conflicting-outputs
