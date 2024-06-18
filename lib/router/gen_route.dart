@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:azl_clean_sample/presentation/splash/splash_page.dart';
-import 'package:azl_clean_sample/presentation/users/users_screen.dart';
-import 'package:azl_clean_sample/router/routes.dart';
+import 'package:kanban_taskmanager/presentation/kanban_board/kanban_screen.dart';
+import 'package:kanban_taskmanager/presentation/splash/splash_page.dart';
+import 'package:kanban_taskmanager/router/routes.dart';
 
 Route<Object>? generateRoute(RouteSettings settings) {
   final namedRoute = settings.name == '/'
@@ -18,7 +18,7 @@ Route<Object>? generateRoute(RouteSettings settings) {
     case AppRoute.unknown:
       return _errorRoute();
     case AppRoute.home:
-      return _buildRoute(settings: settings, screen: const UsersScreen());
+      return _buildRoute(settings: settings, screen: const KanbanScreen());
     case AppRoute.root:
       return _buildRoute(settings: settings, screen: const SplashScreen());
   }

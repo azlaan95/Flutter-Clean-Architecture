@@ -1,4 +1,4 @@
-import 'package:azl_clean_sample/router/routes.dart';
+import 'package:kanban_taskmanager/router/routes.dart';
 
 class NamedRoute {
   final AppRoute appRoute;

@@ -2,14 +2,24 @@
 
 SHELL := /bin/bash
 
-gen: ## Generate files
+gen-f: ## Generate files
 	flutter pub run build_runner build --delete-conflicting-outputs
 
-gen-domain: ## Generate files
+gen-domain-f: ## Generate files
 	cd domain && flutter pub run build_runner build --delete-conflicting-outputs
 
-gen-data: ## Generate files
+gen-data-f: ## Generate files
 	cd data && flutter pub run build_runner build --delete-conflicting-outputs
+
+
+gen: ## Generate files
+	fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+gen-domain: ## Generate files
+	cd domain && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
+
+gen-data: ## Generate files
+	cd data && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
 
 app-setup: ## Setup fvm and get Dependencies
 	dart pub global activate fvm
@@ -38,3 +48,8 @@ fvm-clean: ## Clean Pub Get
 	cd data && fvm flutter clean && cd ..
 	cd domain && fvm flutter clean && cd ..
 	fvm flutter clean
+
+clean-pods: ## To cleat pods and install it again
+	-rm ios/Podfile.lock
+	fvm flutter precache --ios
+	cd ios && pod cache clean --all && pod cache clean 'FortifySec' --all && pod repo update && pod install

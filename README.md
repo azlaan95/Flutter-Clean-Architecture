@@ -1,17 +1,34 @@
-# Flutter Clean Architecture - by Azlaan Khan
+# Kanban Taskmanager - by Azlaan Khan
 
+This app is a Todo Task manager app in KanBan form.
+I am using https://app.todoist.com/
+I have created a project under this site and fetching its data to show in app
+All functionality is not yet implemented but is sufficient to understand.
 This project will demonstrate you the use of Clean Architecture with Bloc.
 
 ## Getting Started
 
-To run the project you need to configure with Flutter 3.10.0. 
+To run the project you need to configure with Flutter 3.22.1.
 I have created a Make file script for you, you can directly run those script or take a reference from it
 
 ### Steps To Run the Project
 
-- Setup Flutter 3.10.0
-- Call Command:
-  - make pub-get or fvm-get
+- Setup Flutter 3.22.2
+- Setup FVM
+  - Terminal Command: make app-setup
+- Dependencies Download:
+  - With FVM
+    - Terminal Command: make fvm-get
+  - Without FVM
+    - Terminal Command: make pub-get
+
+### API Setup
+
+- Todo Api Developer console:
+  - https://developer.todoist.com/rest/v2/#overview
+- To Create an app visit here: 
+  - https://developer.todoist.com/appconsole.html
+  - After creating app copy Test Token and paste it inside
 
 ### Entry Point
 
@@ -29,8 +46,9 @@ You can Run any of below:
 - flutter pub run build_runner build --delete-conflicting-outputs
 
 ### About Azlaan Khan
-Azlaan has been working in the IT industry since last 7 years.
+Azlaan has been working in the IT industry since last 8 years.
 He has contributed in many apps of Different domains.
 Have skills to work in Almost any mobile technology and also sometimes work on backend techs.
 
 Linkedin: https://www.linkedin.com/in/azlaan-khan-74b615a5
+

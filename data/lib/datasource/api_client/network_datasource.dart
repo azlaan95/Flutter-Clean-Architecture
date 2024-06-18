@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:azl_data/config/app_config.dart';
 import 'package:azl_data/datasource/api_client/network_datasource_type.dart';
 import 'package:azl_data/models/app_multipart.dart';
-import 'package:http/http.dart' as http;
+import 'package:azl_data/models/reasponse_dto.dart';
 import 'package:http/http.dart';
 
 enum RequestMethod { GET, POST, PATCH, DELETE, PUT }
@@ -22,43 +23,67 @@ class NetworkDatasource implements NetworkDatasourceType {
   // it's also private, so it can only be called in this class
   NetworkDatasource._internal();
 
+  final Client _innerClient = Client();
+  final List<Function(BaseRequest request)> _interceptors = [];
+
+  //AppHttpClient(this._innerClient);
+
+  void addInterceptor(Function(BaseRequest request) interceptor) {
+    _interceptors.add(interceptor);
+  }
+
+  Future<Response> get(Uri url) async {
+    Request request = Request('GET', url);
+    await _applyInterceptors(request);
+    final response = await _innerClient.send(request);
+    return Response.fromStream(response);
+  }
+
+  Future<void> _applyInterceptors(BaseRequest request) async {
+    if (AppConfig.shared.token?.isNotEmpty ?? false) {
+      request.headers
+          .putIfAbsent("Authorization", () => AppConfig.shared.token ?? "");
+    }
+    request.headers
+        .putIfAbsent("Content-Type", () => "application/json; charset=UTF-8");
+    request.headers
+        .putIfAbsent("Accept", () => "application/json; charset=UTF-8");
+    /* for (var interceptor in _interceptors) {
+      await interceptor(request);
+    }*/
+  }
+
   @override
-  Future<http.Response> apiRequest(
-      {required String url,
-      required RequestMethod method,
-      Map<String, dynamic>? body,
-      Map<String, dynamic>? queryParameter,
-      Map<String, String>? headers,
-      required String apiPath}) async {
+  Future<ResponseDto> apiRequest({required String url,
+    required RequestMethod method,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameter,
+    Map<String, String>? headers,
+    required String apiPath}) async {
     final Uri uri =
-        Uri.parse(generateUrl(url: url, path: apiPath, params: queryParameter));
+    Uri.parse(generateUrl(url: url, path: apiPath, params: queryParameter));
     try {
-      http.Response response;
-      switch (method) {
-        case RequestMethod.GET:
-          response = await http.get(uri, headers: headers);
-          break;
-        case RequestMethod.POST:
-          response =
-              await http.post(uri, body: jsonEncode(body), headers: headers);
-          break;
-        case RequestMethod.PATCH:
-          response =
-              await http.patch(uri, body: jsonEncode(body), headers: headers);
-          break;
-        case RequestMethod.PUT:
-          response =
-              await http.put(uri, body: jsonEncode(body), headers: headers);
-          break;
-        case RequestMethod.DELETE:
-          response = await http.delete(uri, headers: headers);
-          break;
-        default:
-          response = await http.get(uri, headers: headers);
+      Request request = Request(method.name, uri);
+      request.headers.addAll(headers ?? {});
+      if (AppConfig.shared.token?.isNotEmpty ?? false) {
+        request.headers
+            .putIfAbsent("Authorization", () => AppConfig.shared.token ?? "");
       }
-      return response;
+      request.headers
+          .putIfAbsent("Content-Type", () => "application/json; charset=UTF-8");
+      request.headers
+          .putIfAbsent("Accept", () => "application/json; charset=UTF-8");
+      if (method != RequestMethod.GET) {
+        request.body = jsonEncode(body);
+      }
+
+      //await _applyInterceptors(request);
+      var streamResponse = await _innerClient.send(request);
+      Response response = await Response.fromStream(streamResponse);
+
+      return getAppResponse(response);
     } catch (e) {
-      return Response(
+      return getAppResponse(Response(
           jsonEncode({
             "url": uri.path,
             "error": e,
@@ -66,49 +91,65 @@ class NetworkDatasource implements NetworkDatasourceType {
             "headers": headers,
             "method": method
           }),
-          505);
+          505));
     }
   }
 
   @override
-  Future<http.Response> multipartRequest(
-      {required String url,
-      required AppMultiPartRequest multiPart,
-      Map<String, String>? headers,
-      required String apiPath}) async {
+  Future<ResponseDto> multipartRequest({required String url,
+    required AppMultiPartRequest multiPart,
+    Map<String, String>? headers,
+    required String apiPath}) async {
     final Uri uri = Uri.parse(generateUrl(url: url, path: apiPath));
     try {
-      http.Response response;
-      MultipartRequest request = http.MultipartRequest("POST", uri);
+      //Response response;
+      MultipartRequest request = MultipartRequest("POST", uri);
       request.fields.addAll(multiPart.fields ?? {});
       request.files.addAll(multiPart.files ?? []);
       request.headers.addAll(headers ?? {});
-      StreamedResponse multipartResponse = await request.send();
-      response = await http.Response.fromStream(multipartResponse);
-      return response;
+      await _applyInterceptors(request);
+      var streamResponse = await _innerClient.send(request);
+      Response response = await Response.fromStream(streamResponse);
+      return getAppResponse(response);
     } catch (e) {
-      return Response(
+      return getAppResponse(Response(
           jsonEncode({
             "url": uri.path,
             "error": e,
             "request": multiPart,
             "headers": headers,
-            "method": "Multipart"
+            "method": "MULTIPART"
           }),
-          505);
+          505));
     }
   }
-}
 
-String generateUrl(
-    {required String url, Map<String, dynamic>? params, String? path}) {
-  if (params == null) return url + (path ?? '');
-  List queryString = [];
-  params.forEach((key, value) {
-    if (value != null) {
-      queryString.add('$key=$value');
+  ResponseDto getAppResponse(Response response) {
+    try {
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        return ResponseDto(success: true, response: jsonData);
+      } else if (response.statusCode == 505) {
+        return ResponseDto(success: false, errorResponse: response);
+      } else {
+        final jsonData = jsonDecode(response.body);
+        return ResponseDto(success: false, response: jsonData);
+      }
+    } catch (e) {
+      return ResponseDto(success: false, errorResponse: e, isException: true);
     }
-  });
-  String queryPath = queryString.join('&');
-  return url + (path != null ? "$path?" : "") + queryPath;
+  }
+
+  String generateUrl(
+      {required String url, Map<String, dynamic>? params, String? path}) {
+    if (params == null) return url + (path ?? '');
+    List queryString = [];
+    params.forEach((key, value) {
+      if (value != null) {
+        queryString.add('$key=$value');
+      }
+    });
+    String queryPath = queryString.join('&');
+    return url + (path != null ? "$path?" : "") + queryPath;
+  }
 }

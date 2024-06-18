@@ -1,9 +1,11 @@
-import 'package:azl_clean_sample/environment/environment.dart';
+import 'package:environments/env/env_prod.dart';
+import 'package:azl_data/config/environment.dart';
 
 extension ProductionEnvironment on Environment {
   static Environment production() {
     return Environment(
-        baseDomain1: 'https://6423b770001cb9fc20449630.mockapi.io',
-        urlPathDomain1: '/api/v1');
+        baseUrl: EnvProd.BASEDOMAIN,
+        path1: EnvProd.URLPATH1,
+        token: EnvProd.TOKEN);
   }
 }

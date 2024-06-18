@@ -1,10 +1,10 @@
 import 'package:azl_data/models/app_multipart.dart';
+import 'package:azl_data/models/reasponse_dto.dart';
 
 import 'network_datasource.dart';
-import 'package:http/http.dart' as http;
 
 abstract class NetworkDatasourceType {
-  Future<http.Response> apiRequest(
+  Future<ResponseDto> apiRequest(
       {required String url,
       required RequestMethod method,
       Map<String, dynamic>? body,
@@ -12,7 +12,7 @@ abstract class NetworkDatasourceType {
       Map<String, String>? headers,
       required String apiPath});
 
-  Future<http.Response> multipartRequest(
+  Future<ResponseDto> multipartRequest(
       {required String url,
       required AppMultiPartRequest multiPart,
       Map<String, String>? headers,

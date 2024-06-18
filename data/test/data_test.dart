@@ -1,14 +1,16 @@
+/*
 import 'package:http/http.dart';
 
 import 'package:azl_data/datasource/api_client/network_datasource.dart';
+*/
 
 main() async {
-  Response response = await NetworkDatasource().apiRequest(
+  /*Response response = await NetworkDatasource().apiRequest(
       url: 'https://6423b770001cb9fc20449630.mockapi.io/api/',
       method: RequestMethod.GET,
-      apiPath: 'v1/users');
+      apiPath: 'v1/kanban_board');
 
-  print(response.body);
+  print(response.body);*/
 }
 
 String generateUrl(

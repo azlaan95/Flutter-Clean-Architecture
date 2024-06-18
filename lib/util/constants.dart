@@ -1,4 +1,3 @@
 class AppConstants{
-  static const salaried = 'Salaried';
-  static const occupationTypeList = ['Salaried','Self-Employed'];
+  static const addConstantsHere = 'addConstantsHere';
 }

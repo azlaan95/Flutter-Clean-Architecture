@@ -1,0 +1,12 @@
+name: environments
+description: Used to fetch different environments.
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  envied: 0.5.4+1
+
+dev_dependencies:
+  envied_generator: 0.5.4+1
+  build_runner: 2.4.8

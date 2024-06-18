@@ -5,7 +5,7 @@ RouteObserver<ModalRoute<void>> navigationObserver = RouteObserver<ModalRoute<vo
 
 ThemeData them = ThemeData(
   primarySwatch: Colors.green,
-    fontFamily: "Exo2",
+    // fontFamily: "Exo2",
     pageTransitionsTheme: _buildPageTransitionsTheme()
 );
 

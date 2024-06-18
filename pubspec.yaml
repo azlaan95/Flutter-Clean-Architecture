@@ -1,5 +1,5 @@
-name: azl_clean_sample
-description: A new Flutter project.
+name: kanban_taskmanager
+description: "KanBan Task manager"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
@@ -14,9 +14,12 @@ dependencies:
   flutter_screenutil: ^5.9.3
   easy_localization: ^3.0.7
   flutter_bloc: ^8.1.5
-#  alice: ^0.3.2
+  #  get_it: ^7.7.0
+  #  alice: ^0.3.2
   azl_domain:
     path: domain
+  environments:
+    path: environments
 
 dependency_overrides:
   flutter_test:
@@ -28,15 +31,16 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   flutter_lints: ^4.0.0
+  test: ^1.25.2
   mockito: ^5.4.4
 
 flutter:
 
   uses-material-design: true
   assets:
-#    - assets/icons/
-#    - assets/fonts/
-#    - assets/images/
+    #    - assets/icons/
+    #    - assets/fonts/
+    #    - assets/images/
     - assets/locales/
 #
 #  fonts:
