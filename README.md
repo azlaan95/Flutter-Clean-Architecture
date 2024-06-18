@@ -33,9 +33,9 @@ I have created a Make file script for you, you can directly run those script or 
 ### Entry Point
 
 You can Run any of below:
-- main.dart
-- main_dev.dart
-- main_prod.dart
+- entry_point/main_mock.dart
+- entry_point/main_dev.dart
+- entry_point/main_prod.dart
 
 ### Manual Commands Step by Step if you are not using make file commands
 - cd data && flutter clean && flutter pub get && cd ..
