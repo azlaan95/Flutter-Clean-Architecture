@@ -25,6 +25,8 @@ app-setup: ## Setup fvm and get Dependencies
 	dart pub global activate fvm
 	fvm install 3.22.2
 	fvm use 3.22.2
+	make gen-env
+	make pub-get
 
 
 pub-get: ## Clean Pub Get
@@ -53,3 +55,8 @@ clean-pods: ## To cleat pods and install it again
 	-rm ios/Podfile.lock
 	fvm flutter precache --ios
 	cd ios && pod cache clean --all && pod cache clean 'FortifySec' --all && pod repo update && pod install
+
+gen-env: ## Clean Pub Get
+	-rm environments/lib/env/env_dev.g.dart
+	-rm environments/lib/env/env_prod.g.dart
+	cd environments && fvm flutter clean && fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs && cd ..
