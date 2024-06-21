@@ -26,7 +26,7 @@ app-setup: ## Setup fvm and get Dependencies
 	fvm install 3.22.2
 	fvm use 3.22.2
 	make gen-env
-	make pub-get
+	make fvm-get
 
 
 pub-get: ## Clean Pub Get
