@@ -1,13 +1,13 @@
-import 'package:azl_domain/di/domain_injection.dart';
 import 'package:azl_domain/model/sections/section.dart';
 import 'package:azl_domain/model/tasks/task.dart';
+import 'package:azl_presentation/presentation/kanban_board/bloc/kanban_bloc.dart';
+import 'package:azl_presentation/presentation/kanban_board/bloc/kanban_state.dart';
+import 'package:azl_presentation/presentation/kanban_board/widgets/kanban_drag_target.dart';
+import 'package:azl_presentation/presentation/kanban_board/widgets/kanban_draggable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/bloc/kanban_bloc.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/bloc/kanban_state.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/widgets/kanban_drag_target.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/widgets/kanban_draggable.dart';
+import 'package:get_it/get_it.dart';
 
 class KanbanScreen extends StatelessWidget {
   const KanbanScreen({super.key});
@@ -16,7 +16,7 @@ class KanbanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<KanbanBloc>(
       create: (context) {
-        KanbanBloc bloc = KanbanBloc(DomainInjection.getIt());
+        KanbanBloc bloc = KanbanBloc(GetIt.I());
         SchedulerBinding.instance.addPostFrameCallback((_) {
           bloc.getSections();
         });

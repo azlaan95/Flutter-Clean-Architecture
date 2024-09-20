@@ -1,10 +1,11 @@
 import 'package:azl_data/api_constants/api_paths.dart';
+import 'package:azl_data/base/base_repository.dart';
 import 'package:azl_data/mocks/mocks.dart';
-import 'package:azl_data/models/reasponse_dto.dart';
-import 'package:azl_data/repositories/tasks/tasks_repository_type.dart';
+import 'package:azl_domain/base/reasponse_dto.dart';
+import 'package:azl_domain/repository/tasks_repository_type.dart';
 
-class TasksRepository extends TasksRepositoryType {
-  TasksRepository({required super.appConfig});
+class TasksRepository extends BaseRepository implements TasksRepositoryType {
+  TasksRepository({required super.appConfig, required super.apiClient});
 
   @override
   Future<ResponseDto> getTasks() async {

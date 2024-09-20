@@ -1,13 +1,14 @@
 import 'package:azl_data/config/app_config_type.dart';
 import 'package:azl_data/datasource/api_client/network_datasource.dart';
-import 'package:azl_data/di/datasource_module.dart';
+import 'package:azl_data/datasource/api_client/network_datasource_type.dart';
 import 'package:azl_data/models/app_multipart.dart';
-import 'package:azl_data/models/reasponse_dto.dart';
+import 'package:azl_domain/base/reasponse_dto.dart';
 
-class BaseRepository with DatasourceModule {
-  BaseRepository({required this.appConfig});
+class BaseRepository {
+  BaseRepository({required this.appConfig, required this.apiClient});
 
   final AppConfigType appConfig;
+  final NetworkDatasourceType apiClient;
 
   Future<ResponseDto> callGetApi(
       {required String url,

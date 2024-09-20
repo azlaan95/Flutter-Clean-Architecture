@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_taskmanager/router/navigation_controller.dart';
-import 'package:kanban_taskmanager/router/routes.dart';
-import 'package:kanban_taskmanager/util/util.dart';
+import 'package:azl_presentation/router/navigation_controller.dart';
+import 'package:azl_presentation/router/routes.dart';
+import 'package:azl_presentation/util/util.dart';
 
 class SplashScreen extends StatelessWidget with ResponsiveMixin {
   const SplashScreen({super.key});

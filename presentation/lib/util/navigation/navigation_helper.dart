@@ -1,5 +1,5 @@
-import 'package:kanban_taskmanager/router/navigation_controller.dart';
-import 'package:kanban_taskmanager/router/routes.dart';
+import 'package:azl_presentation/router/navigation_controller.dart';
+import 'package:azl_presentation/router/routes.dart';
 
 class NavigationHelper {
   static void transitionToHome(Map<String, dynamic>? arguments) {

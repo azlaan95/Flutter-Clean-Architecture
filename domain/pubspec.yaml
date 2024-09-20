@@ -13,11 +13,9 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   get_it: ^7.7.0
-  azl_data:
-    path: ../data
 
 dev_dependencies:
   json_serializable: ^6.6.2
-  build_runner: ^2.4.4
+  build_runner:
   flutter_lints: ^2.0.1
   test: ^1.25.2

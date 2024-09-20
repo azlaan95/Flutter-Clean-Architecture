@@ -1,7 +1,7 @@
 import 'package:azl_domain/model/tasks/task.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/bloc/kanban_bloc.dart';
+import 'package:azl_presentation/presentation/kanban_board/bloc/kanban_bloc.dart';
 
 class KanbanDragTarget extends StatelessWidget {
   const KanbanDragTarget(

@@ -1,5 +1,5 @@
 import 'package:azl_data/models/app_multipart.dart';
-import 'package:azl_data/models/reasponse_dto.dart';
+import 'package:azl_domain/base/reasponse_dto.dart';
 
 import 'network_datasource.dart';
 

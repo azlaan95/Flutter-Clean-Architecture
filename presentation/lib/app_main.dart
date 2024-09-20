@@ -1,10 +1,10 @@
+import 'package:azl_presentation/router/gen_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kanban_taskmanager/router/gen_route.dart';
-import 'package:kanban_taskmanager/router/navigation_controller.dart';
-import 'package:kanban_taskmanager/util/app_global.dart' as global;
-import 'package:kanban_taskmanager/util/assets/app_locale.dart';
+import 'package:azl_presentation/router/navigation_controller.dart';
+import 'package:azl_presentation/util/app_global.dart' as global;
+import 'package:azl_presentation/util/assets/app_locale.dart';
 
 Future<void> myMain() async {
   WidgetsFlutterBinding.ensureInitialized();

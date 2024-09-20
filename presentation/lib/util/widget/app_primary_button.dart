@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_taskmanager/util/util.dart';
+import 'package:azl_presentation/util/util.dart';
 
 class AppPrimaryButton extends StatelessWidget {
   const AppPrimaryButton(

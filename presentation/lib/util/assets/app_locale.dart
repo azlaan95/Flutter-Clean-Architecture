@@ -1,5 +1,5 @@
+import 'package:azl_presentation/translations/translation_datasource.dart';
 import 'package:flutter/material.dart';
-import 'package:azl_data/datasource/translations/translation_datasource.dart';
 class AppLocales {
   static const defaultLanguage =
       AppLanguage(LocaleTexts.selectLanguage, Locale('en', 'US'));

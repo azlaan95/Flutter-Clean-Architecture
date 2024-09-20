@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:azl_data/config/app_config.dart';
 import 'package:azl_data/datasource/api_client/network_datasource_type.dart';
 import 'package:azl_data/models/app_multipart.dart';
-import 'package:azl_data/models/reasponse_dto.dart';
+import 'package:azl_domain/base/reasponse_dto.dart';
 import 'package:http/http.dart';
 
 enum RequestMethod { GET, POST, PATCH, DELETE, PUT }

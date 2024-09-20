@@ -1,0 +1,46 @@
+name: azl_presentation
+description: "KanBan Task manager"
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.3
+  easy_localization: ^3.0.7
+  flutter_bloc: ^8.1.5
+  get_it: ^7.7.0
+  #  alice: ^0.3.2
+  azl_domain:
+    path: ../domain
+  environments:
+    path: ../environments
+
+dependency_overrides:
+  flutter_test:
+    sdk: flutter
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  flutter_lints: ^4.0.0
+  test: ^1.25.2
+  mockito: ^5.4.4
+
+#
+#  fonts:
+#    - family: Exo2
+#      fonts:
+#        - asset: assets/fonts/Exo2-Bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/Exo2-SemiBold.ttf
+#          weight: 600
+#        - asset: assets/fonts/Exo2-Medium.ttf
+#          weight: 500
+#        - asset: assets/fonts/Exo2-Regular.ttf
+#          weight: 400

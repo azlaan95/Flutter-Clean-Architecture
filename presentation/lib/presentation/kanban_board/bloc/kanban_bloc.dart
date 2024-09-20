@@ -5,7 +5,7 @@ import 'package:azl_domain/model/sections/section.dart';
 import 'package:azl_domain/model/tasks/task.dart';
 import 'package:azl_domain/usecase/kanban/kanban_usecase_type.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/bloc/kanban_state.dart';
+import 'package:azl_presentation/presentation/kanban_board/bloc/kanban_state.dart';
 
 class KanbanBloc extends Cubit<KanbanState> {
   KanbanBloc(this.useCaseType) : super(const KanbanState(loading: true));

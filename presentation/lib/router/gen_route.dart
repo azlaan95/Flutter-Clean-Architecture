@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_taskmanager/presentation/kanban_board/kanban_screen.dart';
-import 'package:kanban_taskmanager/presentation/splash/splash_page.dart';
-import 'package:kanban_taskmanager/router/routes.dart';
+import 'package:azl_presentation/presentation/kanban_board/kanban_screen.dart';
+import 'package:azl_presentation/presentation/splash/splash_page.dart';
+import 'package:azl_presentation/router/routes.dart';
 
 Route<Object>? generateRoute(RouteSettings settings) {
   final namedRoute = settings.name == '/'

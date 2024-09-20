@@ -1,9 +1,9 @@
-import 'package:azl_data/models/reasponse_dto.dart';
-import 'package:azl_data/repositories/sections/sections_repository_type.dart';
-import 'package:azl_data/repositories/tasks/tasks_repository_type.dart';
 import 'package:azl_domain/base/error_response.dart';
+import 'package:azl_domain/base/reasponse_dto.dart';
 import 'package:azl_domain/model/sections/section.dart';
 import 'package:azl_domain/model/tasks/task.dart';
+import 'package:azl_domain/repository/sections_repository_type.dart';
+import 'package:azl_domain/repository/tasks_repository_type.dart';
 import 'package:azl_domain/usecase/kanban/kanban_usecase_type.dart';
 import 'package:dartz/dartz.dart';
 
